@@ -1,0 +1,63 @@
+html,body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: sans-serif;
+    background: #ffffff;
+    position: relative;
+}
+
+#container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#invoice {
+    margin-top: 81px;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+#inputBox tr td {   
+    height: 35px;
+}
+#inputBox tr td .row {
+    font-size: 20px;
+    border-radius: 10px;
+}
+input[type=button] {
+    background:#d8d9db; 
+    border:0 none;
+    cursor:pointer;
+}
+
+.dynamic-row {
+    border-collapse: collapse;
+    border: 1px solid red;
+    text-align: center;
+}
+.dynamic-row tr td {   
+    padding: 0; 
+    margin: 0;
+    height: 60px;
+    width: 150px;
+    border: 1px solid red;
+}
+
+table {
+    width: 100%;
+}
+#grand-total {
+    position: fixed;
+    margin-top: 60px;
+    border: 1px solid red;
+}
+.header {
+    position: fixed;
+}
+@media (max-width:778px) {
+    #invoice{
+        margin-top: 81px;
+    }
+}

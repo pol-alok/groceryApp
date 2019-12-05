@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Grocery App</title>
+    <link rel="stylesheet" href="groceryStyle.css">
+    <script src="groc.js"></script>
+  </head>
+
+  <body>
+    <div id="container">
+      <h1>Grocery Shop Application</h1>
+      <table class="dynamic-row header">
+        <tr>
+          <td>
+            <h5>Product Name</h5>
+          </td>
+          <td>
+            <h5>Unit</h5>
+          </td>
+          <td>
+            <h5>Unit Price</h5>
+          </td>
+          <td>
+            <h5>Total</h5>
+          </td>
+          <td>
+            <h5>Edit/Delete</h5>
+          </td>
+        </tr>
+      </table>
+
+      <div id="invoice">
+        <table id="dynamic-row" class="dynamic-row"></table>
+      </div>
+      <table class="dynamic-row">
+        <tr id="grand-total">
+          <td colspan="3">
+            <h5>Grand Total :</h5>
+          </td>
+          <td id="grand-total-1">0</td>
+        </tr>
+      </table>
+
+      <form>
+        <table id="inputBox">
+          <tr>
+            <td>
+              <input
+                type="text"
+                class="row"
+                id="product-name"
+                placeholder="Product Name..."
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                class="row"
+                id="unit"
+                placeholder="Unit..."
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                class="row"
+                id="unit-price"
+                placeholder="Price..."
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="button"
+                class="row"
+                id="add"
+                value="Add"
+                onclick="addItem()"
+              />
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>
