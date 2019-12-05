@@ -37,7 +37,7 @@
       </div>
       <table class="dynamic-row">
         <tr id="grand-total">
-          <td colspan="3">
+          <td>
             <h5>Grand Total :</h5>
           </td>
           <td id="grand-total-1">0</td>
@@ -52,7 +52,7 @@
                 type="text"
                 class="row"
                 id="product-name"
-                placeholder="Product Name..."
+                placeholder="Product Name"
                 required
               />
             </td>
@@ -61,7 +61,7 @@
                 type="number"
                 class="row"
                 id="unit"
-                placeholder="Unit..."
+                placeholder="Unit"
                 required
               />
             </td>
@@ -70,7 +70,7 @@
                 type="number"
                 class="row"
                 id="unit-price"
-                placeholder="Price..."
+                placeholder="Price"
                 required
               />
             </td>
@@ -82,6 +82,8 @@
                 value="Add"
                 onclick="addItem()"
               />
+              <i class="fas fa-cart-plus" class="row"
+              id="add" onclick="addItem()"></i>
             </td>
           </tr>
         </table>

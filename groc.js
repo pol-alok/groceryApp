@@ -26,6 +26,7 @@ function addItem() {
     var editDelete = document.createElement("td");
 
     var deletButton = document.createElement("button");
+    deletButton.setAttribute('id', "del");
     deletButton.textContent = 'delete';
     var functionWithArgumentForDelete = "deleteItem(" + "'dynamic-row','" + (rowId) + "')";
     deletButton.setAttribute("OnClick", functionWithArgumentForDelete);
@@ -41,7 +42,7 @@ function addItem() {
         alert("Field requred !");
     }
     else {
-        if (parseFloat(unit.value) < 0 || parseFloat(unitPrice.value) < 0) {
+        if (parseFloat(unit.value) <=0 || parseFloat(unitPrice.value) <=0) {
 
             alert("Unit or Unit Price should not be -'ve' !");
         }
@@ -66,7 +67,7 @@ function addItem() {
                 row.appendChild(total);
                 row.appendChild(editDelete);
                 dynamicTable.appendChild(row);
-                document.getElementById('grand-total-1').innerHTML = grandTotal;
+                document.getElementById('grand-total-1').innerHTML = grandTotal.toFixed(2);
 
             }
 
@@ -81,7 +82,7 @@ function addItem() {
 
 function deleteItem(tableId, rowId) {
     grandTotal -= document.getElementById(rowId).childNodes[3].innerHTML;
-    document.getElementById('grand-total-1').innerHTML = grandTotal;
+    document.getElementById('grand-total-1').innerHTML = grandTotal.toFixed(2);
     document.getElementById(tableId).removeChild(document.getElementById(rowId));
 };
 function editItem(rowId) {
@@ -97,7 +98,7 @@ function saveItem(rowId) {
         alert("Field requred !");
     }
     else {
-        if (document.getElementById("unit-price" + rowId).value < 0 || document.getElementById("unit" + rowId).value < 0) {
+        if (document.getElementById("unit-price" + rowId).value <= 0 || document.getElementById("unit" + rowId).value <= 0) {
             alert("Unit or Unit Price should not be -'ve' !");
         }
         else {
@@ -105,13 +106,13 @@ function saveItem(rowId) {
                 alert("unit should be integer value !");
             }
             else {
-                document.getElementById(rowId).childNodes[4].innerHTML = "<button id='delete' onclick= deleteItem(" + "'dynamic-row'," + rowId + ")>delete</button><button id='edit' onclick='editItem(" + rowId + ")'>edit</button>"
+                document.getElementById(rowId).childNodes[4].innerHTML = "<button id='del' onclick= deleteItem(" + "'dynamic-row'," + rowId + ")>delete</button><button id='edit' onclick='editItem(" + rowId + ")'>edit</button>"
                 document.getElementById(rowId).childNodes[3].innerHTML = "<td>" + (document.getElementById("unit-price" + rowId).value * document.getElementById("unit" + rowId).value).toFixed(2) + "</td>";
                 document.getElementById(rowId).childNodes[2].innerHTML = "<td>" + document.getElementById("unit-price" + rowId).value + "</td>";
                 document.getElementById(rowId).childNodes[1].innerHTML = "<td>" + document.getElementById("unit" + rowId).value + "</td>";
                 document.getElementById(rowId).contentEditable = "false";
                 grandTotal += parseFloat(document.getElementById(rowId).childNodes[3].innerHTML);
-                document.getElementById('grand-total-1').innerHTML = grandTotal;
+                document.getElementById('grand-total-1').innerHTML = grandTotal.toFixed(2);
             }
         }
     }

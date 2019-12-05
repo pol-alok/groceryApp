@@ -8,6 +8,8 @@ html,body {
 }
 
 #container {
+    height: 100%;
+    width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -17,8 +19,8 @@ html,body {
     margin-top: 81px;
     height: 300px;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
-
 #inputBox tr td {   
     height: 35px;
 }
@@ -56,8 +58,24 @@ table {
 .header {
     position: fixed;
 }
-@media (max-width:778px) {
+@media (max-width:414px) {
     #invoice{
-        margin-top: 81px;
+        margin-top: 98px;
     }
+}
+#save:hover {
+    color: rgb(253, 251, 251);
+    background-color: rgb(3, 172, 3);
+}
+#del:hover {
+    color: rgb(253, 251, 251);
+    background-color: rgb(250, 3, 3);
+}
+#edit:hover {
+    color: rgb(253, 251, 251);
+    background-color: rgb(82, 150, 214);
+}
+#add:hover {
+    color: rgb(253, 251, 251);
+    background-color: rgb(3, 172, 3);
 }
