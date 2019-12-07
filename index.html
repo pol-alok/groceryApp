@@ -5,37 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Grocery App</title>
-    <link rel="stylesheet" href="groceryStyle.css">
+    <link rel="stylesheet" href="groceryStyle.css" />
     <script src="groc.js"></script>
   </head>
-
   <body>
     <div id="container">
       <h1>Grocery Shop Application</h1>
-      <table class="dynamic-row header">
-        <tr>
-          <td>
-            <h5>Product Name</h5>
-          </td>
-          <td>
-            <h5>Unit</h5>
-          </td>
-          <td>
-            <h5>Unit Price</h5>
-          </td>
-          <td>
-            <h5>Total</h5>
-          </td>
-          <td>
-            <h5>Edit/Delete</h5>
-          </td>
-        </tr>
-      </table>
-
       <div id="invoice">
-        <table id="dynamic-row" class="dynamic-row"></table>
+        <table  align="center" class="dynamic-row">
+          <thead>
+            <tr>
+              <td>
+                Product Name
+              </td>
+              <td>
+                Unit
+              </td>
+              <td>
+                Unit Price
+              </td>
+              <td>
+                Total
+              </td>
+              <td>
+                  Edit/Delete
+              </td>
+            </tr>
+          </thead>
+          <tbody id="dynamic-row">
+
+          </tbody>
+        </table>
       </div>
-      <table class="dynamic-row">
+      <table class="dynamic-row" align="center">
         <tr id="grand-total">
           <td>
             <h5>Grand Total :</h5>
@@ -43,51 +45,13 @@
           <td id="grand-total-1">0</td>
         </tr>
       </table>
-
-      <form>
-        <table id="inputBox">
-          <tr>
-            <td>
-              <input
-                type="text"
-                class="row"
-                id="product-name"
-                placeholder="Product Name"
-                required
-              />
-            </td>
-            <td>
-              <input
-                type="number"
-                class="row"
-                id="unit"
-                placeholder="Unit"
-                required
-              />
-            </td>
-            <td>
-              <input
-                type="number"
-                class="row"
-                id="unit-price"
-                placeholder="Price"
-                required
-              />
-            </td>
-            <td>
-              <input
-                type="button"
-                class="row"
-                id="add"
-                value="Add"
-                onclick="addItem()"
-              />
-              <i class="fas fa-cart-plus" class="row"
-              id="add" onclick="addItem()"></i>
-            </td>
-          </tr>
-        </table>
-      </form>
+      <br>
+      <div class="input-area">
+          <input type="text" class="input-boxes" id="product-name" placeholder="Product Name" required />
+          <input type="number" class="input-boxes" id="unit-price" placeholder="Unit Price" required />
+          <input type="number" class="input-boxes" id="unit" placeholder="Unit" required />
+          <button id="add" onclick="addItem()">Add</button>
+      </div>
     </div>
   </body>
 </html>
