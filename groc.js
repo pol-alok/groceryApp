@@ -6,13 +6,6 @@ function addItem() {
     var prodectName = document.getElementById("product-name");
     var unit = document.getElementById("unit");
     var unitPrice = document.getElementById("unit-price");
-
-    //console.log(dynamicTable);
-    // var totalvalue = (parseFloat(unitPrice.value) * parseFloat(unit.value));
-    // grandTotal += totalvalue;
-    // dynamicTable.innerHTML = "<tr id ='" + rowId + "<td>" + prodectName.value + "</td><td>" + unit.value + "</td><td>" + unitPrice.value + "</td><td>" + totalvalue + "</td> <td><button onclick='deleteItem('dynamic-row','" + (rowId) + "')'>delete</button></td><td><button onclick='editItem('" + (rowId) + "')'>edit</button></td></tr>";
-
-
     var row = document.createElement("tr");
     row.setAttribute('id', rowId);
     var product = document.createElement("td");
@@ -87,10 +80,12 @@ function deleteItem(tableId, rowId) {
 };
 function editItem(rowId) {
     document.getElementById(rowId).childNodes[4].innerHTML = "<button id='save' onclick='saveItem(" + rowId + ")'>save</button>"
-    document.getElementById(rowId).childNodes[0].contentEditable = "true";
-    document.getElementById(rowId).childNodes[2].innerHTML = "<input type='number' id='unit-price" + rowId + "'" + "value=" + document.getElementById(rowId).childNodes[2].innerHTML + ">";
-    document.getElementById(rowId).childNodes[1].innerHTML = "<input type='number' id='unit" + rowId + "'" + "value=" + document.getElementById(rowId).childNodes[1].innerHTML + ">";
+    //document.getElementById(rowId).childNodes[0].contentEditable = "true";
+    document.getElementById(rowId).childNodes[0].innerHTML = "<input type='text' class='input-boxes-on-edit' id='procuct-name" + rowId + "'" + "value=" + document.getElementById(rowId).childNodes[0].innerHTML + ">";
+    document.getElementById(rowId).childNodes[2].innerHTML = "<input type='number' class='input-boxes-on-edit' id='unit-price" + rowId + "'" + "value=" + document.getElementById(rowId).childNodes[2].innerHTML + ">";
+    document.getElementById(rowId).childNodes[1].innerHTML = "<input type='number' class='input-boxes-on-edit' id='unit" + rowId + "'" + "value=" + document.getElementById(rowId).childNodes[1].innerHTML + ">";
     grandTotal -= document.getElementById(rowId).childNodes[3].innerHTML;
+    //console.log(document.getElementById(rowId));
 };
 function saveItem(rowId) {
     if (document.getElementById("unit-price" + rowId).value == '' || document.getElementById("unit" + rowId).value == '') {
@@ -110,9 +105,11 @@ function saveItem(rowId) {
                 document.getElementById(rowId).childNodes[3].innerHTML = "<td>" + (document.getElementById("unit-price" + rowId).value * document.getElementById("unit" + rowId).value).toFixed(2) + "</td>";
                 document.getElementById(rowId).childNodes[2].innerHTML = "<td>" + document.getElementById("unit-price" + rowId).value + "</td>";
                 document.getElementById(rowId).childNodes[1].innerHTML = "<td>" + document.getElementById("unit" + rowId).value + "</td>";
-                document.getElementById(rowId).contentEditable = "false";
+                document.getElementById(rowId).childNodes[0].innerHTML = "<td>" + document.getElementById("procuct-name" + rowId).value + "</td>";
+                //document.getElementById(rowId).contentEditable = "false";
                 grandTotal += parseFloat(document.getElementById(rowId).childNodes[3].innerHTML);
                 document.getElementById('grand-total-1').innerHTML = grandTotal.toFixed(2);
+                //console.log(document.getElementById(rowId).childNodes[0].innerHTML);
             }
         }
     }
