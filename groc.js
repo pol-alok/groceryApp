@@ -80,12 +80,10 @@ function deleteItem(tableId, rowId) {
 };
 function editItem(rowId) {
     document.getElementById(rowId).childNodes[4].innerHTML = "<button id='save' onclick='saveItem(" + rowId + ")'>save</button>"
-    //document.getElementById(rowId).childNodes[0].contentEditable = "true";
     document.getElementById(rowId).childNodes[0].innerHTML = "<input type='text' class='input-boxes-on-edit' id='procuct-name" + rowId + "'" + "value=" + document.getElementById(rowId).childNodes[0].innerHTML + ">";
     document.getElementById(rowId).childNodes[2].innerHTML = "<input type='number' class='input-boxes-on-edit' id='unit-price" + rowId + "'" + "value=" + document.getElementById(rowId).childNodes[2].innerHTML + ">";
     document.getElementById(rowId).childNodes[1].innerHTML = "<input type='number' class='input-boxes-on-edit' id='unit" + rowId + "'" + "value=" + document.getElementById(rowId).childNodes[1].innerHTML + ">";
     grandTotal -= document.getElementById(rowId).childNodes[3].innerHTML;
-    //console.log(document.getElementById(rowId));
 };
 function saveItem(rowId) {
     if (document.getElementById("unit-price" + rowId).value == '' || document.getElementById("unit" + rowId).value == '') {
@@ -106,10 +104,8 @@ function saveItem(rowId) {
                 document.getElementById(rowId).childNodes[2].innerHTML = "<td>" + document.getElementById("unit-price" + rowId).value + "</td>";
                 document.getElementById(rowId).childNodes[1].innerHTML = "<td>" + document.getElementById("unit" + rowId).value + "</td>";
                 document.getElementById(rowId).childNodes[0].innerHTML = "<td>" + document.getElementById("procuct-name" + rowId).value + "</td>";
-                //document.getElementById(rowId).contentEditable = "false";
                 grandTotal += parseFloat(document.getElementById(rowId).childNodes[3].innerHTML);
                 document.getElementById('grand-total-1').innerHTML = grandTotal.toFixed(2);
-                //console.log(document.getElementById(rowId).childNodes[0].innerHTML);
             }
         }
     }
